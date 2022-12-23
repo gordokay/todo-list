@@ -6,6 +6,7 @@ export default class Task {
     this.priority = priority;
     this.notes = notes;
     this.checklist = checklist;
+    this.isComplete = false;
   }
 
   addToChecklist(item) {

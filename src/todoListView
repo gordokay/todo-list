@@ -1,0 +1,8 @@
+export default function todoListView() {
+  const contentContainer = document.querySelector('.content');
+
+  const taskContainer = document.createElement('div');
+  taskContainer.classList.add('tasks');
+
+  contentContainer.appendChild(taskContainer);
+}
