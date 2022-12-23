@@ -27,5 +27,5 @@ export default function taskView(task) {
   isComplete.checked = task.isComplete;
 
   taskView.append(title, desc, dueDate, priority, checklist, isComplete);
-  taskContainer.append(taskView);
+  taskContainer.appendChild(taskView);
 }

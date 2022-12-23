@@ -4,12 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
-  <div class="content"></div>
+  <header>
+    <h1>todo list</h1>
+  </header>
+  <section class="projects">
+    <h2>projects</h2>
+    <button type="button" class="new-project-btn">+ new project</button>
+  </section>
+  <section class="tasks">
+    <h2>tasks</h2>
+    <button type="button" class="new-task-btn">+ new task</button>
+  </section>
   <form action="">
-    <h3>add task</h3>
+    <h3></h3>
     <div>
       <label for="title">title</label>
       <input type="text" name="title" id="title">
@@ -25,7 +36,7 @@
     <div>
       <label for="checklist">checklist</label>
       <input type="text" name="checklist" id="checklist">
-      <button type="button">+</button>
+      <button type="button" class="checklist-btn">+</button>
       <div class="checklist-items"></div>
     </div>
     <fieldset>
@@ -37,8 +48,8 @@
       <input type="radio" name="priority" id="low" value="low">
       <label for="low">low</label>
     </fieldset>
-    <button type="button" class="cancel">cancel</button>
-    <button type="button" class="add">add</button>
+    <button type="button" class="cancel-btn">cancel</button>
+    <button type="button" class="confirm-btn"></button>
   </form>
   <script src="main.js"></script>
 </body>
