@@ -9,6 +9,10 @@ class Project {
     this.activeTasks.push(task);
   }
 
+  deleteTask(task) {
+    this.activeTasks.splice(this.activeTasks.indexOf(task), 1);
+  }
+
   completeTask(task) {
     this.completedTasks.push(task);
   }
