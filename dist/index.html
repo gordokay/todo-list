@@ -8,6 +8,38 @@
 </head>
 <body>
   <div class="content"></div>
+  <form action="">
+    <h3>add task</h3>
+    <div>
+      <label for="title">title</label>
+      <input type="text" name="title" id="title">
+    </div>
+    <div>
+      <label for="description">description</label>
+      <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+      <label for="due-date">due date</label>
+      <input type="date" name="due-date" id="due-date">
+    </div>
+    <div>
+      <label for="checklist">checklist</label>
+      <input type="text" name="checklist" id="checklist">
+      <button type="button">+</button>
+      <div class="checklist-items"></div>
+    </div>
+    <fieldset>
+      <legend>priority</legend>
+      <input type="radio" name="priority" id="high" value="high">
+      <label for="high">high</label>
+      <input type="radio" name="priority" id="medium" value="medium">
+      <label for="medium">medium</label>
+      <input type="radio" name="priority" id="low" value="low">
+      <label for="low">low</label>
+    </fieldset>
+    <button type="button" class="cancel">cancel</button>
+    <button type="button" class="add">add</button>
+  </form>
   <script src="main.js"></script>
 </body>
 </html>

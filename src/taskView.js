@@ -15,9 +15,6 @@ export default function taskView(task) {
   const priority = document.createElement('p');
   priority.textContent = task.priority;
 
-  const notes = document.createElement('p');
-  notes.textContent = task.notes;
-
   const checklist = document.createElement('ul');
   task.checklist.forEach(item => {
     const listItem = document.createElement('li');
@@ -29,6 +26,6 @@ export default function taskView(task) {
   isComplete.setAttribute('type', 'checkbox');
   isComplete.checked = task.isComplete;
 
-  taskView.append(title, desc, dueDate, priority, notes, checklist, isComplete);
+  taskView.append(title, desc, dueDate, priority, checklist, isComplete);
   taskContainer.append(taskView);
 }
