@@ -52,7 +52,7 @@ form {
   border: 1px solid black;
   margin: 1em;
   overflow: auto;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr) auto auto 1fr;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -64,6 +64,7 @@ form > div:nth-of-type(2) {
 
 form > div:nth-of-type(4) {
   grid-row: span 2;
+  margin-bottom: 0.5em;
 }
 
 form > div:last-child {

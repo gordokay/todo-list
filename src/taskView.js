@@ -6,6 +6,9 @@ export default function taskView(task) {
   const title = document.createElement('h4');
   title.textContent = task.title;
 
+  const editBtn = document.createElement('button');
+  editBtn.textContent = 'edit';
+
   const desc = document.createElement('p');
   desc.textContent = task.desc;
 
@@ -15,7 +18,7 @@ export default function taskView(task) {
   const priority = document.createElement('p');
   priority.textContent = task.priority;
 
-  const checklist = document.createElement('ul');
+  const checklist = document.querySelector('ul');
   task.checklist.forEach(item => {
     const listItem = document.createElement('li');
     listItem.textContent = item;
