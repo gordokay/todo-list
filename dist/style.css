@@ -33,7 +33,7 @@ h1 {
   font-size: 2rem;
 }
 
-h2 {
+h2, h3 {
   font-size: 1.5rem;
   margin-bottom: 1em;
 }
@@ -47,24 +47,60 @@ button {
 }
 
 form {
+  width: 80%;
   display: none;
+  border: 1px solid black;
+  margin: 1em;
+  overflow: auto;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: 1fr 1fr;
+}
+
+form h3,
+form > div:first-of-type,
+form > div:nth-of-type(2) {
+  grid-column: span 2;
+}
+
+form > div:nth-of-type(4) {
+  grid-row: span 2;
+}
+
+form > div:last-child {
+  grid-column: span 2;
+  text-align: right;
 }
 
 label {
   display: block;
+  margin-bottom: 0.5em;
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  margin-bottom: 0.5em;
 }
 
 fieldset label {
   display: inline;
 }
 
-.checklist-items {
-  font-size: 0.8em;
+li {
+  list-style: circle inside;
+}
+
+input,
+textarea {
+  margin-bottom: 1em;
 }
 
 #checklist {
   border: none;
   border-bottom: 1px solid black;
+  width: 80%;
 }
 
 #checklist:focus {
@@ -72,20 +108,11 @@ fieldset label {
   border-bottom: 2px solid black;
 }
 
+#title,
+#description {
+  width: 80%;
+}
+
 .projects {
   border-right: 1px solid black;
-}
-
-.item {
-  position: relative;
-}
-
-.item::before {
-  position: absolute;
-  content: '';
-  width: 10px;
-  height: 10px;
-  border: 1px solid black;
-  left: -16px;
-  top: 4px;
 }

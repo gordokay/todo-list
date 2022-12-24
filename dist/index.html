@@ -20,14 +20,14 @@
     <button type="button" class="new-task-btn">+ new task</button>
   </section>
   <form action="">
-    <h3></h3>
+    <h3>new task</h3>
     <div>
       <label for="title">title</label>
       <input type="text" name="title" id="title">
     </div>
     <div>
       <label for="description">description</label>
-      <textarea name="description" id="description" cols="30" rows="10"></textarea>
+      <textarea name="description" id="description" cols="30" rows="5"></textarea>
     </div>
     <div>
       <label for="due-date">due date</label>
@@ -37,19 +37,29 @@
       <label for="checklist">checklist</label>
       <input type="text" name="checklist" id="checklist">
       <button type="button" class="checklist-btn">+</button>
-      <div class="checklist-items"></div>
+      <div class="checklist-items">
+        <ul></ul>
+      </div>
     </div>
     <fieldset>
       <legend>priority</legend>
-      <input type="radio" name="priority" id="high" value="high">
-      <label for="high">high</label>
-      <input type="radio" name="priority" id="medium" value="medium">
-      <label for="medium">medium</label>
-      <input type="radio" name="priority" id="low" value="low">
-      <label for="low">low</label>
+      <div>
+        <input type="radio" name="priority" id="high" value="high">
+        <label for="high">high</label>
+      </div>
+      <div>
+        <input type="radio" name="priority" id="medium" value="medium">
+        <label for="medium">medium</label>
+      </div>
+      <div>
+        <input type="radio" name="priority" id="low" value="low">
+        <label for="low">low</label>
+      </div>
     </fieldset>
-    <button type="button" class="cancel-btn">cancel</button>
-    <button type="button" class="confirm-btn"></button>
+    <div>
+      <button type="button" class="cancel-btn">cancel</button>
+      <button type="button" class="confirm-btn">add</button>
+    </div>
   </form>
   <script src="main.js"></script>
 </body>

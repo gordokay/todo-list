@@ -12,10 +12,9 @@ const checklistInput = document.getElementById('checklist');
 const checklistItemContainer = document.querySelector('.checklist-items');
 checklistButton.addEventListener('click', () => {
   if(checklistInput.value) {
-    const item = document.createElement('p');
-    item.classList.add('item');
+    const item = document.createElement('li');
     item.textContent = checklistInput.value;
-    checklistItemContainer.appendChild(item);
+    checklistItemContainer.querySelector('ul').appendChild(item);
     checklistInput.value = '';
   }
 })
@@ -23,7 +22,7 @@ cancelButton.addEventListener('click', () => {
   form.style.display = 'none';
 })
 addButton.addEventListener('click', () => {
-  form.style.display = 'block';
+  form.style.display = 'grid';
 })
 
 
