@@ -1,8 +1,8 @@
 import Task from "./task";
-import taskView from "./taskView";
+import {renderTaskView} from "./taskView";
 
-const t1 = new Task('do stuff', 'do some things', '05-28-3000', 1, ['do', 'the', 'stuff']);
-taskView(t1);
+const t1 = new Task(0, 'do stuff', 'do some things', '05-28-3000', 'high', ['do', 'the', 'stuff']);
+renderTaskView(t1);
 
 const addButton = document.querySelector('.new-task-btn');
 const cancelButton = document.querySelector('.cancel-btn');
