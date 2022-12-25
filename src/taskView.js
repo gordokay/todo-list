@@ -6,6 +6,9 @@ export function renderTaskView(task) {
   const taskView = document.createElement('div');
   taskView.setAttribute('data-id', task.id);
 
+  const collapsibleItems = document.createElement('div');
+  collapsibleItems.classList.add('collapsible-items');
+
   const title = document.createElement('h4');
   title.textContent = task.title;
 
@@ -33,7 +36,11 @@ export function renderTaskView(task) {
   isComplete.setAttribute('type', 'checkbox');
   isComplete.checked = task.isComplete;
 
-  taskView.append(title, editBtn, desc, dueDate, priority, checklist, isComplete);
+  collapsibleItems.append(desc, priority, checklist, isComplete);
+  collapsibleItems.style.display = 'none';
+
+  taskView.append(title, dueDate, editBtn, collapsibleItems);
+  taskView.addEventListener('click', toggleCollapsibleItems);
 
   let followingTask = document.querySelector(`[data-id='${task.id + 1}']`)
   if(followingTask) {
@@ -45,8 +52,15 @@ export function renderTaskView(task) {
 
 export function clearTaskView(id) {
   const taskView = document.querySelector(`[data-id='${id}']`);
+  taskView.removeEventListener('click', toggleCollapsibleItems);
+
   while(taskView.firstChild) {
     taskView.removeChild(taskView.firstChild);
   }
   taskContainer.removeChild(taskView);
+}
+
+function toggleCollapsibleItems() {
+  const collapsibleItems = document.querySelector('.collapsible-items');
+  collapsibleItems.style.display = collapsibleItems.style.display === 'none' ? 'block' : 'none';
 }
