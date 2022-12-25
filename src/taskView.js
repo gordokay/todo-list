@@ -1,4 +1,4 @@
-import editForm from "./editForm";
+import renderForm from "./form";
 
 const taskContainer = document.querySelector('.tasks');
 
@@ -11,7 +11,7 @@ export function renderTaskView(task) {
 
   const editBtn = document.createElement('button');
   editBtn.textContent = 'edit';
-  editBtn.addEventListener('click', editForm.bind(this, task));
+  editBtn.addEventListener('click', renderForm.bind(this, task));
 
   const desc = document.createElement('p');
   desc.textContent = task.desc;
@@ -33,8 +33,14 @@ export function renderTaskView(task) {
   isComplete.setAttribute('type', 'checkbox');
   isComplete.checked = task.isComplete;
 
-  taskView.append(title, desc, dueDate, priority, checklist, isComplete, editBtn);
-  taskContainer.appendChild(taskView);
+  taskView.append(title, editBtn, desc, dueDate, priority, checklist, isComplete);
+
+  let followingTask = document.querySelector(`[data-id='${task.id + 1}']`)
+  if(followingTask) {
+    taskContainer.insertBefore(taskView, followingTask);
+  } else {
+    taskContainer.appendChild(taskView);
+  }
 }
 
 export function clearTaskView(id) {

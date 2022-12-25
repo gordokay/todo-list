@@ -1,11 +1,13 @@
 export default class Task {
-  constructor(id, title, desc, dueDate, priority, checklist) {
-    this.id = id;
+  constructor(title, desc, dueDate, priority) {
+    this.id = Task.id;
+    Task.id++;
+
     this.title = title;
     this.desc = desc;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.checklist = checklist;
+    this.checklist = [];
     this.isComplete = false;
   }
 
@@ -13,3 +15,5 @@ export default class Task {
     this.checklist.push(item);
   }
 }
+
+Task.id = 0;
