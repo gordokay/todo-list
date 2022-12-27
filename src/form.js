@@ -93,7 +93,7 @@ function saveForm(task) {
     task.addToChecklist(li.textContent);
   }
 
-  if(document.querySelector(`[data-id='${task.id}']`)) {
+  if(document.querySelector(`[data-task-id='${task.id}']`)) {
     clearTaskView(task.id);
   }
 
