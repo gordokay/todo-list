@@ -4,7 +4,7 @@ const taskContainer = document.querySelector('.tasks');
 
 export function renderTaskView(task) {
   const taskView = document.createElement('div');
-  taskView.setAttribute('data-id', task.id);
+  taskView.setAttribute('data-task-id', task.id);
 
   const collapsibleItems = document.createElement('div');
   collapsibleItems.classList.add('collapsible-items');
@@ -42,7 +42,7 @@ export function renderTaskView(task) {
   taskView.append(title, dueDate, editBtn, collapsibleItems);
   taskView.addEventListener('click', toggleCollapsibleItems);
 
-  let followingTask = document.querySelector(`[data-id='${task.id + 1}']`)
+  let followingTask = document.querySelector(`[data-task-id='${task.id + 1}']`)
   if(followingTask) {
     taskContainer.insertBefore(taskView, followingTask);
   } else {
@@ -51,7 +51,7 @@ export function renderTaskView(task) {
 }
 
 export function clearTaskView(id) {
-  const taskView = document.querySelector(`[data-id='${id}']`);
+  const taskView = document.querySelector(`[data-task-id='${id}']`);
   taskView.removeEventListener('click', toggleCollapsibleItems);
 
   while(taskView.firstChild) {

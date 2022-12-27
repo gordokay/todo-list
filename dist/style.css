@@ -117,3 +117,7 @@ textarea {
 .projects {
   border-right: 1px solid black;
 }
+
+.new-project-input {
+  display: none;
+}

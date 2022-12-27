@@ -1,5 +1,6 @@
 import Task from "./task";
 import {renderTaskView, clearTaskView} from "./taskView";
+import { getActiveProject } from "./todoListView";
 
 const form = document.querySelector('form');
 const titleInput = document.getElementById('title');
@@ -71,6 +72,7 @@ function clearForm() {
 function saveForm(task) {
   if(!task) {
     task = new Task();
+    getActiveProject().addTask(task);
   }
 
   task.title = titleInput.value;
