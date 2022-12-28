@@ -11,7 +11,7 @@ export default class Project {
   }
 
   deleteTask(task) {
-    this.tasks.splice(this.activeTasks.indexOf(task), 1);
+    this.tasks.splice(this.tasks.indexOf(task), 1);
   }
 }
 
