@@ -13,6 +13,16 @@ export default class Project {
   deleteTask(task) {
     this.tasks.splice(this.tasks.indexOf(task), 1);
   }
+
+  deleteTaskById(id) {
+    for(let i = 0; i < this.tasks.length; i++) {
+      if(this.tasks[i].id === +id) {
+        this.tasks.splice(i, 1);
+        console.log(this.tasks);
+        return;
+      }
+    }
+  }
 }
 
 Project.id = 0;

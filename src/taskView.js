@@ -1,5 +1,4 @@
 import renderForm from "./form";
-import { getActiveProject } from "./todoListView";
 
 const taskContainer = document.querySelector('.tasks');
 
@@ -19,8 +18,8 @@ export function renderTaskView(task) {
   editBtn.addEventListener('click', renderForm.bind(this, task));
 
   const deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('delete-btn');
   deleteBtn.textContent = 'delete';
-  deleteBtn.addEventListener('click', removeTaskFromProject.bind(this, task));
 
   const desc = document.createElement('p');
   desc.textContent = task.desc;
@@ -64,11 +63,6 @@ export function clearTaskView(id) {
     taskView.removeChild(taskView.firstChild);
   }
   taskContainer.removeChild(taskView);
-}
-
-function removeTaskFromProject(task) {
-  clearTaskView(task.id);
-  getActiveProject().deleteTask(task);
 }
 
 function toggleCollapsibleItems(e) {
