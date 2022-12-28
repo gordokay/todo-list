@@ -35,6 +35,9 @@ h1 {
 
 h2, h3 {
   font-size: 1.5rem;
+}
+
+h3 {
   margin-bottom: 1em;
 }
 
@@ -121,3 +124,34 @@ textarea {
 .new-project-input {
   display: none;
 }
+
+.tasks > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.task {
+  margin-bottom: 1em;
+  display: grid;
+  grid-template-columns: 1em auto 1fr;
+  grid-template-rows: auto auto;
+  justify-items: end;
+  gap: 0.25em;
+}
+
+.task input {
+  width: 1em;
+  height: 1em;
+  border: 1px solid black;
+  border-radius: 0;
+  transform: translateY(0.1em);
+}
+
+.collapsible-items {
+  justify-self: start;
+  grid-column: span 3;
+  padding-left: 1em;
+}
+

@@ -5,6 +5,7 @@ const taskContainer = document.querySelector('.tasks');
 export function renderTaskView(task) {
   const taskView = document.createElement('div');
   taskView.setAttribute('data-task-id', task.id);
+  taskView.classList.add('task');
 
   const collapsibleItems = document.createElement('div');
   collapsibleItems.classList.add('collapsible-items');
@@ -36,10 +37,10 @@ export function renderTaskView(task) {
   isComplete.setAttribute('type', 'checkbox');
   isComplete.checked = task.isComplete;
 
-  collapsibleItems.append(desc, priority, checklist, isComplete);
+  collapsibleItems.append(desc, priority, checklist, editBtn);
   collapsibleItems.style.display = 'none';
 
-  taskView.append(title, dueDate, editBtn, collapsibleItems);
+  taskView.append(isComplete, title, dueDate, collapsibleItems);
   taskView.addEventListener('click', toggleCollapsibleItems);
 
   let followingTask = document.querySelector(`[data-task-id='${task.id + 1}']`)
@@ -60,7 +61,9 @@ export function clearTaskView(id) {
   taskContainer.removeChild(taskView);
 }
 
-function toggleCollapsibleItems() {
-  const collapsibleItems = document.querySelector('.collapsible-items');
-  collapsibleItems.style.display = collapsibleItems.style.display === 'none' ? 'block' : 'none';
+function toggleCollapsibleItems(e) {
+  if(e.target !== this.querySelector('input') && e.target !== this.querySelector('button')) {
+    const collapsibleItems = this.querySelector('.collapsible-items');
+    collapsibleItems.style.display = collapsibleItems.style.display === 'none' ? 'block' : 'none';
+  }
 }

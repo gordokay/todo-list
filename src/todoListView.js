@@ -2,6 +2,8 @@ import TodoList from "./todoList";
 import Project from "./project";
 import {renderProjectView, clearProjectView} from "./projectView";
 
+import Task from "./task";
+
 const projectList = document.querySelector('.projects');
 const newProjectBtn = document.querySelector('.new-project-btn');
 const newProjectInputContainer = document.querySelector('.new-project-input');
@@ -64,6 +66,18 @@ function bindEvents() {
 
 function setDefaultProject() {
   const defaultProject = new Project('tasks');
+  
+  const task1 = new Task('task a', 'a description', '06-12-1970', 'medium');
+  task1.addToChecklist('a');
+  task1.addToChecklist('b');
+
+  const task2 = new Task('task b', 'b description', '09-13-2023', 'high');
+  task2.addToChecklist('c');
+  task2.addToChecklist('d');
+
+  defaultProject.addTask(task1);
+  defaultProject.addTask(task2);
+  
   activeProject = defaultProject;
   addProjectToList(defaultProject);
   renderProjectView(defaultProject);
