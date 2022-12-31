@@ -18,7 +18,6 @@ export default class Project {
     for(let i = 0; i < this.tasks.length; i++) {
       if(this.tasks[i].id === +id) {
         this.tasks.splice(i, 1);
-        console.log(this.tasks);
         return;
       }
     }

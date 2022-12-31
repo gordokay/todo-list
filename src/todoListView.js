@@ -36,7 +36,7 @@ function addNewProject() {
 
 function addProjectToList(project) {
   const newProject = document.createElement('div');
-  newProject.setAttribute('data-proj', project.id);
+  newProject.setAttribute('data-proj-id', project.id);
 
   const newProjectIcon = document.createElement('span');
   const newProjectName = project.name;
