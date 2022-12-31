@@ -140,11 +140,22 @@ textarea {
   width: 100%;
 }
 
+#project-rename {
+  display: none;
+  height: 2em;
+}
+
 .tasks > div:first-of-type {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
   align-items: center;
+  justify-content: start;
   margin-bottom: 1em;
+  gap: 1em;
+}
+
+.new-task-btn {
+  justify-self: end;
 }
 
 .task {

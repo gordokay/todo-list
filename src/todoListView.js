@@ -40,7 +40,9 @@ function addProjectToList(project) {
   newProject.setAttribute('data-proj-id', project.id);
 
   const newProjectIcon = document.createElement('span');
-  const newProjectName = project.name;
+  const newProjectName = document.createElement('p');
+
+  newProjectName.textContent = project.name;
 
   newProject.append(newProjectIcon, newProjectName);
   projectList.insertBefore(newProject, newProjectBtn);
