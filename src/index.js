@@ -5,6 +5,5 @@ newTaskBtn.addEventListener('click', () => renderForm());
 
 //rename project
 //delete project
-//change project color
 
 

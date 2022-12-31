@@ -140,7 +140,7 @@ textarea {
   width: 100%;
 }
 
-#project-rename {
+.project-rename {
   display: none;
   height: 2em;
 }

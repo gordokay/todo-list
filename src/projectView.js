@@ -3,11 +3,17 @@ import { getActiveProject } from "./todoListView";
 
 const taskContainer = document.querySelector('.tasks');
 const taskContainerHeading = document.querySelector('.tasks h2');
+
+const renameProjectContainer = document.querySelector('.project-rename');
 const renameProjectBtn = document.querySelector('.rename-project-btn');
-const renameProjectInput = document.getElementById('project-rename');
+const renameProjectInput = document.getElementById('project-rename-input');
+const renameProjectConfirm = document.querySelector('.project-rename-confirm');
+const renameProjectCancel = document.querySelector('.project-rename-cancel');
 
 taskContainer.addEventListener('click', removeTaskFromProject);
-renameProjectBtn.addEventListener('click', renameProject);
+renameProjectBtn.addEventListener('click', toggleRenameProject);
+renameProjectCancel.addEventListener('click', toggleRenameProject);
+renameProjectConfirm.addEventListener('click', renameProject);
 
 export function renderProjectView(project) {
   taskContainerHeading.textContent = project.name; 
@@ -21,10 +27,28 @@ export function clearProjectView() {
   })
 }
 
+function toggleRenameProject() {
+  if(renameProjectContainer.style.display === 'none' || !renameProjectContainer.style.display) {
+    renameProjectContainer.style.display = 'block';
+    renameProjectInput.value = taskContainerHeading.textContent;
+    taskContainerHeading.style.display = 'none';
+    renameProjectBtn.style.visibility = 'hidden';
+  } else {
+    renameProjectContainer.style.display = 'none';
+    renameProjectInput.value = '';
+    taskContainerHeading.style.display = 'block';
+    renameProjectBtn.style.visibility = 'visible';
+  }
+}
+
 function renameProject() {
-  renameProjectInput.style.display = 'block';
-  renameProjectInput.value = taskContainerHeading.textContent;
-  taskContainerHeading.style.display = 'none';
+  if(renameProjectInput.value) {
+    taskContainerHeading.textContent = renameProjectInput.value;
+    getActiveProject().name = renameProjectInput.value;
+    const activeProject = document.querySelector(`[data-proj-id='${getActiveProject().id}']`);
+    activeProject.querySelector('p').textContent = renameProjectInput.value;
+    toggleRenameProject();
+  }
 }
 
 function removeTaskFromProject(e) {
