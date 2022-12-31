@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100;200;300;400;500;600;700;800&display=swap');
 
+:root {
+  --pink: #FBACBE;
+  --yellow: #FDE74C;
+  --green: #84E296;
+  --blue: #48BEFF;
+}
+
 *,
 *::before,
 *::after {
@@ -177,12 +184,37 @@ div[data-proj-id] {
   margin-bottom: 1em;
 }
 
-div[data-proj-id] span {
+div[data-proj-id] span,
+.icon-color-picker span {
   display: inline-block;
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  background-color: pink;
+  background-color: var(--pink);
   margin-right: 0.5em;
+  cursor: pointer;
 }
 
+.icon-color-picker {
+  display: none;
+  position: absolute;
+  border: 1px solid black;
+  background-color: white;
+  padding: 0.5em;
+}
+
+.icon-color-picker span:last-of-type {
+  margin-right: 0;
+}
+
+.icon-color-picker .yellow-icon {
+  background-color: var(--yellow);
+}
+
+.icon-color-picker .green-icon {
+  background-color: var(--green);
+}
+
+.icon-color-picker .blue-icon {
+  background-color: var(--blue);
+}

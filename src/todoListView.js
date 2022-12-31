@@ -9,6 +9,7 @@ const newProjectInputContainer = document.querySelector('.new-project-input');
 const newProjectInput = document.getElementById('new-project');
 const addProjectBtn = document.querySelector('.add-project-btn');
 const cancelProjectBtn = document.querySelector('.cancel-project-btn');
+const colorPicker = document.querySelector('.icon-color-picker');
 
 const todoList = new TodoList();
 let activeProject;
@@ -44,11 +45,31 @@ function addProjectToList(project) {
   newProject.append(newProjectIcon, newProjectName);
   projectList.insertBefore(newProject, newProjectBtn);
 
+  newProjectIcon.addEventListener('click', toggleColorPicker);
+
   newProject.addEventListener('click', () => {
     clearProjectView();
     renderProjectView(project);
     activeProject = project;
   })
+}
+
+function toggleColorPicker() {
+  if(colorPicker.style.display === 'block') {
+    colorPicker.style.display = 'none';
+  } else {
+    colorPicker.style.display = 'block';
+  }
+  colorPicker.setAttribute('data-proj', this.parentNode.getAttribute('data-proj-id'));
+  colorPicker.style.top = `calc(${this.parentNode.offsetTop}px - 2em)`;
+}
+
+function changeIconColor() {
+  const newColor = getComputedStyle(this).backgroundColor;
+  const projId = this.parentNode.getAttribute('data-proj');
+  const proj = document.querySelector(`[data-proj-id='${projId}']`);
+  proj.querySelector('span').style.backgroundColor = newColor;
+  colorPicker.style.display = 'none';
 }
 
 function cancelProjectInput() {
@@ -61,6 +82,11 @@ function bindEvents() {
   newProjectBtn.addEventListener('click', showNewProjectInput);
   addProjectBtn.addEventListener('click', addNewProject);
   cancelProjectBtn.addEventListener('click', cancelProjectInput);
+
+  const colorIcons = colorPicker.querySelectorAll('span');
+  colorIcons.forEach(icon => {
+    icon.addEventListener('click', changeIconColor);
+  })
 }
 
 function setDefaultProject() {
