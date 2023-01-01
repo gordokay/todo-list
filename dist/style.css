@@ -229,3 +229,11 @@ div[data-proj-id] span,
 .icon-color-picker .blue-icon {
   background-color: var(--blue);
 }
+
+.project-delete-btn {
+  display: none;
+}
+
+[data-proj-id]:hover .project-delete-btn {
+  display: inline;
+}

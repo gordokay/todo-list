@@ -35,16 +35,29 @@ function addNewProject() {
   }
 }
 
+function removeProject(project) {
+  const listProject = document.querySelector(`[data-proj-id='${project.id}']`);
+  while(listProject.firstChild) {
+    listProject.removeChild(listProject.firstChild);
+  }
+  listProject.parentNode.removeChild(listProject);
+  todoList.deleteProject(project);
+}
+
 function addProjectToList(project) {
   const newProject = document.createElement('div');
   newProject.setAttribute('data-proj-id', project.id);
 
   const newProjectIcon = document.createElement('span');
   const newProjectName = document.createElement('p');
+  const projectDeleteBtn = document.createElement('button');
+  projectDeleteBtn.classList.add('project-delete-btn');
+  projectDeleteBtn.textContent = 'x';
+  projectDeleteBtn.addEventListener('click', removeProject.bind(this, project));
 
   newProjectName.textContent = project.name;
 
-  newProject.append(newProjectIcon, newProjectName);
+  newProject.append(newProjectIcon, newProjectName, projectDeleteBtn);
   projectList.insertBefore(newProject, newProjectBtn);
 
   newProjectIcon.addEventListener('click', toggleColorPicker);
