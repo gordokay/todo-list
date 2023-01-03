@@ -32,6 +32,7 @@ function addNewProject() {
     renderProjectView(newProject);
     activeProject = newProject;
     cancelProjectInput();
+    localStorage.setItem(`project${newProject.id}`, JSON.stringify(newProject));
   }
 }
 
@@ -42,6 +43,7 @@ function removeProject(project) {
   }
   listProject.parentNode.removeChild(listProject);
   todoList.deleteProject(project);
+  localStorage.removeItem(`project${project.id}`);
 }
 
 function addProjectToList(project) {

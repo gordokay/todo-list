@@ -97,6 +97,8 @@ function saveForm(task) {
     clearTaskView(task.id);
   }
 
+  localStorage.setItem(`task${task.id}`, JSON.stringify(task));
+  localStorage.setItem(`project${getActiveProject().id}`, JSON.stringify(getActiveProject()));
   renderTaskView(task);
   clearForm();
 }

@@ -48,6 +48,7 @@ function renameProject() {
     const activeProject = document.querySelector(`[data-proj-id='${getActiveProject().id}']`);
     activeProject.querySelector('p').textContent = renameProjectInput.value;
     toggleRenameProject();
+    localStorage.setItem(`project${getActiveProject().id}`, JSON.stringify(getActiveProject()));
   }
 }
 
@@ -56,5 +57,6 @@ function removeTaskFromProject(e) {
     const taskId = e.target.parentNode.parentNode.getAttribute('data-task-id');
     getActiveProject().deleteTaskById(taskId);
     clearTaskView(taskId);
+    localStorage.setItem(`project${getActiveProject().id}`, JSON.stringify(getActiveProject()));
   }
 }
